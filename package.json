@@ -15,7 +15,9 @@
   "scripts": {
     "build-tokens": "paragon build-tokens --source ./tokens/src --build-dir ./paragon/css --source-tokens-only --exclude-core",
     "build-scss": "paragon build-scss --themesPath ./paragon/css/themes --defaultThemeVariants light --excludeCore",
+    "build-scss-with-core": "paragon build-scss --corePath ./node_modules/@openedx/paragon/styles/scss/core/core.scss --themesPath ./paragon/css/themes --defaultThemeVariants light",
     "build": "make build",
+    "build-with-core": "make build-with-core",
     "build:watch": "nodemon --ignore dist -x \"make build\"",
     "paragon:help": "paragon help"
   },
