@@ -1,8 +1,12 @@
 # brand-example-purple
 
-**This is a simple example brand package that changes the default `brand` color to purple.**
+**This is a simple example brand package that changes the `brand` color to purple.**
 
-![Screenshot of the Authn MFE with this brand package enabled](./docs/images/example-with-theme.png)
+### Before
+![Screenshot of the Authn MFE with this brand package enabled](./docs/images/authn-without-theme.png)
+
+### After
+![Screenshot of the Authn MFE with this brand package enabled](./docs/images/authn-with-theme.png)
 
 ## Using this brand package
 
