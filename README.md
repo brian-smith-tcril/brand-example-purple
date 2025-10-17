@@ -37,7 +37,7 @@ def _use_design_tokens(mfes):
 
 ### 2. Configure `tutor` to use this theme
 
-**This can be done in multiple ways. The CDN method does not require rebuilding the MFE image and is recommended.**
+**This can be done in multiple ways. The CDN and Tutor Paragon Plugin methods do not require rebuilding the MFE image and are recommended.**
 
 #### Using the [`jsdelivr`](https://www.jsdelivr.com/) CDN (Recommended)
 
@@ -74,6 +74,26 @@ hooks.Filters.ENV_PATCHES.add_item(
 
 4. Enable the plugin (`tutor plugins enable purple-jsdelivr`)
 5. Start `tutor`  (`tutor dev start lms cms mfe` or `tutor local start lms cms mfe`)
+
+#### Using the [Tutor Paragon Plugin](https://github.com/openedx/openedx-tutor-plugins/tree/main/plugins/tutor-contrib-paragon) (Recommended)
+
+1. [Install](https://github.com/openedx/openedx-tutor-plugins/tree/main/plugins/tutor-contrib-paragon#installation) and [enable](https://github.com/openedx/openedx-tutor-plugins/tree/main/plugins/tutor-contrib-paragon#enable-the-plugin) the Tutor Paragon Plugin (`tutor-contrib-paragon`)
+2. [Build](https://github.com/openedx/openedx-tutor-plugins/tree/main/plugins/tutor-contrib-paragon#build-the-paragon-image) the `paragon-builder` image.
+2. Navigate to your Tutor config directory (you can find this by running `tutor config printroot`)
+3. From your config directory, navigate to `env/plugins/paragon` (the full path on my dev machine is `~/.local/share/tutor-main/env/plugins/paragon`)
+4. You should see some directories in there, find the `theme-sources` directory.
+5. Place this theme's [`color.json` file](https://github.com/brian-smith-tcril/brand-example-purple/blob/566ba09297a965b5889933b41a06584b6feaf398/tokens/src/themes/light/global/color.json) in the appropriate subdirectory of the `theme-sources` directory.
+```sh
+$ tree ~/.local/share/tutor-main/env/plugins/paragon
+├── [...]
+└── theme-sources
+    └── themes
+        └── light
+            └── global
+                └── color.json
+```
+6. [Build](https://github.com/openedx/openedx-tutor-plugins/tree/main/plugins/tutor-contrib-paragon#build-all-themes) the theme
+7. Start `tutor`  (`tutor dev start lms cms mfe` or `tutor local start lms cms mfe`)
 
 #### Using `npm` aliasing
 
